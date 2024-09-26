@@ -14,18 +14,18 @@ public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
 
-   private List<Task> getAllTasks() {
+   public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
 
-    private Optional<Task> getTaskById(Long id) {
+    public Optional<Task> getTaskById(Long id) {
        return taskRepository.findById(id);
     }
 
-    private Task createTask(Task task) {
+    public Task createTask(Task task) {
        return taskRepository.save(task);
     }
-    private Task updateTask(Long id, Task updateTask) {
+    public Task updateTask(Long id, Task updateTask) {
        return taskRepository.findById(id)
                .map(task -> {
                    task.setTitle(updateTask.getTitle());
@@ -35,7 +35,7 @@ public class TaskService {
                })
                .orElseThrow(() -> new RuntimeException("Task not found"));
     }
-    private void deleteTask(Long id) {
+    public void deleteTask(Long id) {
        taskRepository.deleteById(id);
     }
 }
