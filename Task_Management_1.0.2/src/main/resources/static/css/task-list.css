@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+h2 {
+    font-family: "Merriweather", serif;
+    align-content: center;
+    margin: auto;
+    padding-top: 1rem;
+}
+
+body{
+    font-family: "PT Sans", sans-serif;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #b8ddf6;
+    align-content: space-between;
+    color: dodgerblue;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+#card{
+    margin: 5rem;
+    align-content: center;
+    border-radius: 0.5rem;
+    background-color: #91e0fc;
+    padding: 1rem;
+    width: 25%;
+    height: 100%;
+}
+
+p{
+    color: floralwhite;
+}
+
+.add-button {
+    margin: auto;
+    align-content: center;
+    text-decoration: none;
+    color: dodgerblue;
+}
+
+.edit-button{
+    margin: auto;
+    text-decoration: none;
+    color: mediumpurple;
+    padding-right: 2rem;
+}
+
+.delete-button{
+    margin: auto;
+    text-decoration: none;
+    color: mediumpurple;
+}

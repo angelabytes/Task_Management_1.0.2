@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task List</title>
+    <link rel="stylesheet" th:href="@{/css/task-list.css}">
+</head>
+<body>
+
+    <div class="container">
+        <div id="card" th:each="task : ${tasks}">
+            <div class="task">
+                <h2 th:text="${task.title}"></h2>
+                <p th:text="${task.description}"></p>
+                <p>Status: <span th:text="${task.status}"></span></p>
+                <a th:href="@{/tasks/edit/{id}(id=${task.id})}" class="edit-button">Edit</a>
+                <a th:href="@{/tasks/delete/{id}(id=${task.id})}" class="delete-button">Delete</a>
+            </div>
+        </div>
+    </div>
+    <a href="/tasks/new" class="add-button">Create New Task</a>
+</body>
+</html>

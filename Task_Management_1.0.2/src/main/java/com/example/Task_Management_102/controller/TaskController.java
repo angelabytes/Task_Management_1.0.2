@@ -22,17 +22,17 @@ public class TaskController {
     public String getAllTasks(Model model) {
         List<Task> tasks = taskService.getAllTasks();
         model.addAttribute("tasks", tasks);
-        return "tasks-list";
+        return "task-list";
     }
 
     @GetMapping("/new")
-    public String showNewTaskForm(Long id) {
+    public String showNewTaskForm(Model model) {
         Task task = new Task();
         model.addAttribute("task", task);
         return "task-form";
     }
 
-    @GetMapping("edit/{id}")
+    @GetMapping("/edit/{id}")
     public String showEditTaskForm(@PathVariable Long id, Model model) {
         Optional<Task> task = taskService.getTaskById(id);
         if(task.isPresent()) {
@@ -44,8 +44,8 @@ public class TaskController {
         return "task-form";
     }
 
-    @GetMapping("/save")
-    public String saveTask(@ModelAttribute Task task) {;
+    @PostMapping("/save")
+    public String saveTask(@ModelAttribute("task") Task task) {
         if(task.getId() != null){
             taskService.updateTask(task.getId(), task);
         }
@@ -55,7 +55,7 @@ public class TaskController {
         return "redirect:/tasks";
     }
 
-    @GetMapping("/delete{id}")
+    @GetMapping("/delete/{id}")
     public String deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
         return "redirect:/tasks";
